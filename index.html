@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .tiles-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      /* Dark theme background for the container */
+      background-color: #222222; /* Dark background */
+    }
+
+    .tile {
+      height: 60px;
+      /* Dark theme border */
+      border: 1px solid #555555; /* Slightly lighter dark gray border */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+      /* Dark theme tile background */
+      background-color: #333333; /* Dark gray tile */
+      /* Dark theme text color */
+      color: #eeeeee; /* Light gray text */
+    }
+
+    .tile:hover {
+      /* Dark theme hover background */
+      background-color: #555555; /* Slightly lighter dark gray on hover */
+    }
+  </style>
+
+  <title>Tiled Webpage</title>
+</head>
+<body style="background-color: black;">
+  
+  <div class="tile" onclick="copyText(this)">https://spaces.w3schools.com/space/prathamesh0902/editor</div>
+  <br>
+  <div class="tile" onclick="copyText(this)">hi. can we discuss some of the applications of your work as ?</div>
+  <br>
+  <div class="tile" onclick="copyText(this)">https://www.linkedin.com/in/prathamesh0902</div>
+  <br>
+  <div class="tiles-container">
+    <div class="tile" onclick="copyText(this)">daggerknight99@gmail.com</div>
+    <div class="tile" onclick="copyText(this)">ACT</div>
+    <div class="tile" onclick="copyText(this)">Business Intelligence Analyst</div>
+    <div class="tile" onclick="copyText(this)">pratham.michigan@gmail.com</div>
+    <div class="tile" onclick="copyText(this)">Karan@09</div>
+    <div class="tile" onclick="copyText(this)">Prathamesh Joshi</div>
+    <div class="tile" onclick="copyText(this)">prathuj0902@zohomail.com</div>
+    <div class="tile" onclick="copyText(this)">Karan@0987654321</div>    
+    <div class="tile" onclick="copyText(this)">prathJanuary2025</div>
+    <div class="tile" onclick="copyText(this)">9266420342</div>
+    <div class="tile" onclick="copyText(this)">Jobs@123</div>
+    <div class="tile" onclick="copyText(this)">N/A</div>
+    <div class="tile" onclick="copyText(this)">prathamesh0902</div>
+    <div class="tile" onclick="copyText(this)">Data Science</div>
+    <div class="tile" onclick="copyText(this)">LinkedIn</div>
+    <div class="tile" onclick="copyText(this)">2000000</div>
+    <div class="tile" onclick="copyText(this)">2500000</div>
+    <div class="tile" onclick="copyText(this)">INR per year</div>
+    <div class="tile" onclick="copyText(this)">University of Michigan</div>
+    <div class="tile" onclick="copyText(this)">Gurgaon</div>
+    <div class="tile" onclick="copyText(this)">Axtria - Ingenous Insights</div>
+    <div class="tile" onclick="copyText(this)">zohoK@09</div>
+    <div class="tile" onclick="copyText(this)">1%45PupmdP6rG</div>
+    <div class="tile" onclick="copyText(this)">122015</div>
+  </div>
+    <!-- Add more tiles as needed 
+  <br><br>
+  <div class="tile" onclick="copyText(this)">I hope this message finds you well. Reaching out to connect and potentially explore further opportunities. Fueled by a robust Data Science and ML background, my focus lies in harnessing advanced analytics to propel growth, making data-driven decisions. Your referral would be greatly appreciated.</div>
+    -->
+
+  <script>
+    function copyText(tile) {
+      const textToCopy = tile.innerText;
+
+      // Create a temporary textarea to perform the copy
+      const textarea = document.createElement('textarea');
+      textarea.value = textToCopy;
+      document.body.appendChild(textarea);
+
+      // Select and copy the text
+      textarea.select();
+      document.execCommand('copy');
+
+      // Remove the temporary textarea
+      document.body.removeChild(textarea);
+
+      // You can add additional feedback or actions after copying if needed
+      console.log(`Copied: ${textToCopy}`);
+
+      // Add animation on copy
+      tile.style.backgroundColor = 'lightgreen';
+      setTimeout(() => {
+        tile.style.backgroundColor = '';
+      }, 500);
+    }
+  </script>
+</body>
+</html>
