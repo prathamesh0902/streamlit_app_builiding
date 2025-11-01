@@ -1,30 +1,25 @@
-# streamlit_app/app.py
 import streamlit as st
-from components.tile_component import render_tile
+from tile_component import tile
+from utils.js_utils import copy_to_clipboard
 
-st.set_page_config(page_title="Clickable Tiles App", layout="wide")
+# --- Page setup ---
+st.set_page_config(page_title="Copy Tile App", layout="wide")
+st.markdown("<link rel='stylesheet' href='main.css'>", unsafe_allow_html=True)
 
-st.title("Clickable Tiles with Copy Functionality")
+st.title("🧩 Copy Tile App")
 
-# Load and inject the custom CSS
-with open("styles/main.css") as f:
-    st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
-
-# Data for the four tiles
-tile_data_list = [
-    {"id": "tile1", "title": "Tile 1", "description": "Click to copy prompt A", "text_to_copy": "This is the text for prompt A."},
-    {"id": "tile2", "title": "Tile 2", "description": "Click to copy prompt B", "text_to_copy": "This is the text for prompt B."},
-    {"id": "tile3", "title": "Tile 3", "description": "Click to copy prompt C", "text_to_copy": "This is the text for prompt C."},
-    {"id": "tile4", "title": "Tile 4", "description": "Click to copy prompt D", "text_to_copy": "This is the text for prompt D."}
+# --- Example tile data ---
+tiles = [
+    {"title": "Hello", "content": "Hello, World!"},
+    {"title": "Python", "content": "print('Hello, Python!')"},
+    {"title": "Streamlit", "content": "st.write('Hello from Streamlit!')"}
 ]
 
-# Use a container with the CSS class for layout
-st.markdown('<div class="tile-container">', unsafe_allow_html=True)
+cols = st.columns(3)
 
-# Render each tile using the component function
-cols = st.columns(len(tile_data_list))
-for i, tile_data in enumerate(tile_data_list):
+for i, t in enumerate(tiles):
     with cols[i]:
-        render_tile(tile_data)
+        tile(t["title"], t["content"])
 
-st.markdown('</div>', unsafe_allow_html=True)
+# Load JS for clipboard functionality
+copy_to_clipboard()

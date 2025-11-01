@@ -1,0 +1,26 @@
+.tile {
+    background-color: #f8f9fa;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    margin: 10px;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+}
+
+.tile:hover {
+    background-color: #e9ecef;
+    transform: translateY(-3px);
+}
+
+.tile h4 {
+    margin: 0;
+    color: #333;
+}
+
+.tile p {
+    font-size: 14px;
+    color: #555;
+}
